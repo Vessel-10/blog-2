@@ -1,0 +1,241 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root{
+    // color
+    --white: #fff;
+    --black: #000;
+    --fade-black: #404040;
+    --btn-bg: linear-gradient(135deg, #ffffff 0%, #008106 100%);
+}
+@mixin fonts(
+    $font-size: 14px,
+    $font-family: "Inter",
+    $font-weight: lighter,
+    $font-style: normal
+    ){
+    font-size: $font-size;
+    font-family: $font-family, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: $font-weight;
+    font-style: $font-style;
+}
+@mixin cards(
+    $padding:10px,
+    $gap:10px
+    ){
+    padding: $padding;
+    background: var(--white);
+    border: 0.5px dotted;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+@mixin heading{
+    @include fonts(15.25px, "Inter" ,bolder);
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+}
+// general styling
+*{
+    margin: 0;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+}
+img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+// for extra small devices
+@media (max-width:480px){
+
+    .container{
+        width: 90%;
+        margin: auto;
+    }
+
+    // home page styling
+    // hero styling
+    .hero{
+        .container{
+            .hero-content{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 0;
+                .content-section{
+                    order: 2;
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        margin-top: 10px;
+                        input[type=text],
+                        input[type=button]{
+                            width: 100%;
+                            padding: 5px;
+                            outline: none;
+                            border: 1px solid var(--fade-black);
+                            border-radius: 5px;
+                        }
+                        input[type=button]{
+                            background: var(--btn-bg);
+                            color: var(--black);
+                            @include fonts(14.4px,bolder);
+                            text-transform: uppercase;
+                        }
+                    }
+                    p{
+                        @include fonts(16px, bolder);
+                        color: var(--fade-black);
+                    }
+                }
+                .img-section{
+                    order: 1;
+                }
+            }
+        }
+    }
+
+    // blogs styling
+    .posts{
+        margin: 20px 0;
+        .container{
+            .post-content{
+                h3{
+                    @include heading();
+                }
+                .blogs{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    .card{
+                        @include cards(10px, 5px);
+                        .card-head{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 3px;
+                            img{
+                                border-radius: 5px;
+                            }
+                            h4{
+                                @include fonts(20px, "inter", bolder);
+                                text-transform: capitalize;
+                            }
+                        }
+                        .card-body{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2.5px;
+                            h4{
+                                @include fonts(15px, "Inter", bold);
+                            }
+                            p{
+                                @include fonts(14px, "Inter", lighter);
+                            }
+                        }
+                        .card-footer{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // categories
+    .category{
+        .container{
+            .categories{
+                .section-name{
+                    h3{
+                        @include heading();
+                    }
+                }
+                .category-content{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    .card{
+                        @include cards();
+                        .card-head{
+                            img{
+                                width: 70px;
+                                height: 70px;
+                            }
+                        }
+                        .card-body{
+                            h4{
+                                @include heading()
+                            }
+                            p{
+                                @include fonts(12.5px, "Inter", 400);
+                            }
+                        }
+                        .card-footer{
+                            a{
+                                display: inline;
+                                text-decoration: none;
+                                background: var(--btn-bg);
+                                padding: 10px 16px;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // cta
+    .cta{
+        .container{
+            .cta-content{
+                padding: 20px 0;
+                h3{
+                    text-align: center;
+                    text-transform: capitalize;
+                    @include fonts(15px, "Inter", bold);
+                }
+                p{
+                    text-align: center;
+                }
+                form{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    margin-top: 10px;
+                    input[type=text],
+                    input[type=button]{
+                        width: 100%;
+                        padding: 5px;
+                        outline: none;
+                        border: 1px solid var(--fade-black);
+                        border-radius: 5px;
+                    }
+                    input[type=button]{
+                        background: var(--btn-bg);
+                        color: var(--black);
+                        @include fonts(14.4px,bolder);
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// for small device
+@media (min-width:481px) and (max-width:768px){
+    body{
+        background: red;
+    }
+}
+// tablets
+// laptops
