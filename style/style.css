@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 :root {
-  --white: #fff;
+  --white: $white;
   --black: #000;
   --fade-black: #404040;
   --btn-bg: linear-gradient(135deg, #ffffff 0%, #008106 100%);
@@ -226,8 +226,252 @@ img {
   }
 }
 @media (min-width: 481px) and (max-width: 768px) {
-  body {
-    background: red;
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    width: 1000px;
+    margin: auto;
+  }
+  .header {
+    margin: 20px 0;
+  }
+  .header .container .nav-bar {
+    padding: 10px 20px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--btn-bg);
+  }
+  .header .container .nav-bar .site-name h1 {
+    font-family: "Edu VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+  .header .container .nav-bar .site-name h1::first-letter {
+    text-transform: capitalize;
+    font-weight: bolder;
+  }
+  .header .container .nav-bar ul {
+    display: flex;
+    gap: 20px;
+  }
+  .header .container .nav-bar ul li {
+    list-style: none;
+  }
+  .header .container .nav-bar ul li a {
+    text-decoration: none;
+  }
+  .hero .container .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .hero .container .hero-content .content-section,
+  .hero .container .hero-content .img-section {
+    flex: 1;
+  }
+  .hero .container .hero-content .content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero .container .hero-content .content-section p {
+    font-size: 16px;
+    font-family: "Edu VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .hero .container .hero-content .content-section form {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+  }
+  .hero .container .hero-content .content-section form input[type=text] {
+    flex-grow: 3;
+  }
+  .hero .container .hero-content .content-section form input[type=button] {
+    flex-grow: 2;
+    background: var(--btn-bg);
+    border: none;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    text-transform: capitalize;
+  }
+  .hero .container .hero-content .content-section form input[type=text],
+  .hero .container .hero-content .content-section form input[type=button] {
+    outline: none;
+    padding: 10px 5px;
+  }
+  .posts .container .post-content h3 {
+    font-size: 15.25px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+  }
+  .posts .container .post-content .blogs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .posts .container .post-content .blogs .card {
+    padding: 10px;
+    background: var(--white);
+    border: 0.5px dotted;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 325px;
+  }
+  .posts .container .post-content .blogs .card .card-head {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .posts .container .post-content .blogs .card .card-head img {
+    border-radius: 5px;
+  }
+  .posts .container .post-content .blogs .card .card-head h4 {
+    font-size: 20px;
+    font-family: "inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    text-transform: capitalize;
+  }
+  .posts .container .post-content .blogs .card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5px;
+  }
+  .posts .container .post-content .blogs .card .card-body h4 {
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+  }
+  .posts .container .post-content .blogs .card .card-body p {
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: lighter;
+    font-style: normal;
+  }
+  .posts .container .post-content .blogs .card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .category .container .categories .section-name h3 {
+    font-size: 15.25px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  .category .container .categories .category-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .category .container .categories .category-content .card {
+    padding: 10px;
+    background: var(--white);
+    border: 0.5px dotted;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 325px;
+  }
+  .category .container .categories .category-content .card .card-head img {
+    width: 70px;
+    height: 70px;
+  }
+  .category .container .categories .category-content .card .card-body h4 {
+    font-size: 15.25px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+  }
+  .category .container .categories .category-content .card .card-body p {
+    font-size: 12.5px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .category .container .categories .category-content .card .card-footer a {
+    display: inline;
+    text-decoration: none;
+    background: var(--btn-bg);
+    padding: 10px 16px;
+    border-radius: 5px;
+  }
+  .cta .container .cta-content {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cta .container .cta-content h3 {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+  }
+  .cta .container .cta-content p {
+    text-align: center;
+  }
+  .cta .container .cta-content form {
+    width: 50%;
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .cta .container .cta-content form input[type=text],
+  .cta .container .cta-content form input[type=button] {
+    padding: 5px;
+    outline: none;
+    border: 1px solid var(--fade-black);
+    border-radius: 5px;
+  }
+  .cta .container .cta-content form input[type=text] {
+    flex: 2;
+  }
+  .cta .container .cta-content form input[type=button] {
+    flex: 1;
+    background: var(--btn-bg);
+    color: var(--black);
+    font-size: 14.4px;
+    font-family: bolder, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: lighter;
+    font-style: normal;
+    text-transform: uppercase;
   }
 }
 

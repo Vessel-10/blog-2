@@ -4,11 +4,12 @@
 
 :root{
     // color
-    --white: #fff;
+    --white: $white;
     --black: #000;
     --fade-black: #404040;
     --btn-bg: linear-gradient(135deg, #ffffff 0%, #008106 100%);
 }
+$white: white;
 @mixin fonts(
     $font-size: 14px,
     $font-family: "Inter",
@@ -233,9 +234,253 @@ img{
 
 // for small device
 @media (min-width:481px) and (max-width:768px){
-    body{
-        background: red;
+    .container{
+        width: 90%;
+        margin: auto;
+    }
+
+    // Home page
+    .hero{
+        .container{
+            .hero-content{
+                .content-section{
+                    p{}
+                    form{}
+                }
+                .img-section{}
+            }
+        }
     }
 }
 // tablets
 // laptops
+@media (min-width:1280px){
+    .container{
+        width: 1000px;
+        margin: auto;
+    }
+
+    // home page
+    // navigation section
+    .header{
+        margin: 20px 0;
+        .container{
+            .nav-bar{
+                padding: 10px 20px 10px 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: var(--btn-bg);
+                .site-name{
+                    h1{
+                        font-family: "Edu VIC WA NT Hand", cursive;
+                        font-optical-sizing: auto;
+                        font-weight: 600;
+                        font-style: normal;
+                        &::first-letter{
+                            text-transform: capitalize;
+                            font-weight: bolder;
+                        }
+                    }
+                }
+                ul{
+                    display: flex;
+                    gap: 20px;
+                    li{
+                        list-style: none;
+                        a{
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // hero section
+    .hero{
+        .container{
+            .hero-content{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                .content-section,
+                .img-section{
+                    flex: 1;
+                }
+                .content-section{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    p{
+                        font-size: 16px;
+                        font-family: "Edu VIC WA NT Hand", cursive;
+                        font-optical-sizing: auto;
+                        font-weight: 700;
+                        font-style: normal;
+                    }
+                    form{
+                        display: flex;
+                        gap: 5px;
+                        width: 100%;
+                        input[type=text]{
+                            flex-grow: 3;
+                        }
+                        input[type=button]{
+                            flex-grow: 2;
+                            background: var(--btn-bg);
+                            border: none;
+                            @include fonts(16px, "Inter", 800);
+                            text-transform: capitalize;
+                        }
+                        input[type=text],
+                        input[type=button]{
+                            outline: none;
+                            padding: 10px 5px; 
+                        }
+                    }
+                }
+                .img-section{
+                    img{}
+                }
+            }
+        }
+    }
+
+    // Posts
+    .posts{
+        .container{
+            .post-content{
+                h3{
+                    @include heading();
+                }
+                .blogs{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    .card{
+                        @include cards(10px, 5px);
+                        width: 325px;
+                        .card-head{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 3px;
+                            img{
+                                border-radius: 5px;
+                            }
+                            h4{
+                                @include fonts(20px, "inter", bolder);
+                                text-transform: capitalize;
+                            }
+                        }
+                        .card-body{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2.5px;
+                            h4{
+                                @include fonts(15px, "Inter", bold);
+                            }
+                            p{
+                                @include fonts(14px, "Inter", lighter);
+                            }
+                        }
+                        .card-footer{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // category
+    .category{
+        .container{
+            .categories{
+                .section-name{
+                    h3{
+                        @include heading();
+                        padding: 20px 0;
+                    }
+                }
+                .category-content{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    .card{
+                        @include cards();
+                        width: 325px;
+                        .card-head{
+                            img{
+                                width: 70px;
+                                height: 70px;
+                            }
+                        }
+                        .card-body{
+                            h4{
+                                @include heading()
+                            }
+                            p{
+                                @include fonts(12.5px, "Inter", 400);
+                            }
+                        }
+                        .card-footer{
+                            a{
+                                display: inline;
+                                text-decoration: none;
+                                background: var(--btn-bg);
+                                padding: 10px 16px;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // cta
+    .cta{
+        .container{
+            .cta-content{
+                padding: 20px 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                h3{
+                    text-align: center;
+                    text-transform: capitalize;
+                    @include fonts(15px, "Inter", bold);
+                }
+                p{
+                    text-align: center;
+                }
+                form{
+                    width: 50%;
+                    display: flex;
+                    gap: 5px;
+                    margin-top: 10px;
+                    input[type=text],
+                    input[type=button]{
+                        padding: 5px;
+                        outline: none;
+                        border: 1px solid var(--fade-black);
+                        border-radius: 5px;
+                    }
+                    input[type=text]{
+                        flex: 2;
+                    }
+                    input[type=button]{
+                        flex: 1;
+                        background: var(--btn-bg);
+                        color: var(--black);
+                        @include fonts(14.4px,bolder);
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
